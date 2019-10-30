@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'ffaker'
+
+5.times do
+  user = User.create(email: FFaker::Internet.email)
+  (rand(3)).times { user.pets.create(name: FFaker::Name.first_name) }
+end
